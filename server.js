@@ -2,8 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 3000;
+const authRoutes = require('./routes/authRoutes');
 
 app.use(express.json());
+app.use('/api/auth', authRoutes);
 
 mongoose.connect('mongodb://localhost:27017/simple_auth', {
     useNewUrlParser: true,
